@@ -1,8 +1,8 @@
 FROM gcc:latest
 
-COPY main.cpp /usr/src/cpp_test
+WORKDIR /sandbox
 
-WORKDIR /usr/src/cpp_test
+COPY main.cpp /sandbox
 
 RUN g++ -o Test main.cpp
 
