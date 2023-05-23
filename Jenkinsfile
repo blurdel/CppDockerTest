@@ -10,12 +10,6 @@ pipeline {
     }
     
     stages {
-        stage ('Init') {
-            steps {
-                echo 'Stage: Init'
-                echo "branch=${env.BRANCH_NAME}"
-            }
-        }
         stage ('Docker') {
             agent { dockerfile true }
             steps {
@@ -27,12 +21,6 @@ pipeline {
         always {
             echo 'post/always'
             deleteDir()
-        }
-        success {
-            echo 'post/success'
-        }
-        failure {
-            echo 'post/failure'
         }
     }
 }
